@@ -33,6 +33,10 @@
                         <option value="apartment">Apartment</option>
                         <option value="villa">Villa</option>
                         <option value="townhouse">Townhouse</option>
+                        <option value="house">House</option>
+                        <option value="cabin">Cabin</option>
+                        <option value="loft">Loft</option>
+                        <option value="cottage">Cottage</option>
                     </select>
                 </div>
                 <div class="filter-group">
