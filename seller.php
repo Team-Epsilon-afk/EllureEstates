@@ -3,171 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ellure Estates - Sell Property</title>
+    <title>Ellure Estates - List Your Property</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
             margin: 0;
             padding: 0;
+            color: #212529;
         }
+
         header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 20px;
+            background-color: #1c1c1c;
+            padding: 15px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        header .logo {
-            height: 50px;
+
+        .logo {
+            height: 45px;
         }
-        header nav a {
-            color: #fff;
+
+        nav a {
+            color: #ffffff;
             text-decoration: none;
-            margin: 0 10px;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
-        .seller-form {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        nav a:hover {
+            color: #f0a500;
         }
-        .seller-form h2 {
+
+        .form-section {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-section h2 {
+            font-size: 28px;
+            margin-bottom: 25px;
+            color: #1c1c1c;
+        }
+
+        .form-group {
             margin-bottom: 20px;
-            font-size: 24px;
-            color: #333;
         }
-        .seller-form label {
+
+        .form-group label {
             display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
+            margin-bottom: 8px;
+            font-weight: 600;
         }
-        .seller-form input[type="text"],
-        .seller-form input[type="number"],
-        .seller-form select {
+
+        .form-group input,
+        .form-group select {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            padding: 12px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            font-size: 16px;
         }
-        .seller-form .file-upload {
-            margin-bottom: 15px;
+
+        .file-upload {
+            margin-top: 10px;
         }
-        .seller-form .file-upload input[type="file"] {
+
+        .file-upload input[type="file"] {
             display: none;
         }
-        .seller-form .file-upload label {
-            display: inline-block;
-            padding: 10px 15px;
+
+        .file-upload label {
+            padding: 12px 20px;
             background-color: #007bff;
             color: #fff;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
+            display: inline-block;
         }
-        .seller-form .file-upload label:hover {
+
+        .file-upload label:hover {
             background-color: #0056b3;
         }
-        .seller-form button {
-            display: block;
+
+        button {
             width: 100%;
-            padding: 10px;
+            padding: 14px;
             background-color: #28a745;
             color: #fff;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: 600;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
-        .seller-form button:hover {
+
+        button:hover {
             background-color: #218838;
         }
+
         footer {
+            margin-top: 50px;
             text-align: center;
+            background-color: #1c1c1c;
             padding: 20px;
-            background-color: #333;
-            color: #fff;
-            margin-top: 20px;
+            color: #ffffff;
         }
+
         footer a {
-            color: #fff;
-            text-decoration: none;
+            color: #f0a500;
             margin: 0 10px;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header>
-        <div class="header-left">
-            <img src="images/E.png" alt="Ellure Estates Logo" class="logo">
-            <nav>
-                <a href="index.php">Home</a>
-                <a href="seller.php">Sell</a>
-                <a href="contact.php">Contact</a>
-            </nav>
-        </div>
+        <img src="images/E.png" alt="Ellure Estates Logo" class="logo">
+        <nav>
+            <a href="index.php">Home</a>
+            <a href="seller.php">Sell</a>
+            <a href="contact.php">Contact</a>
+        </nav>
     </header>
 
-    <!-- Seller Form -->
-    <div class="seller-form">
-        <h2>Sell Your Property</h2>
+    <!-- Form Section -->
+    <section class="form-section">
+        <h2>List Your Property</h2>
         <form action="submit_property.php" method="POST" enctype="multipart/form-data">
-            <label for="seller-name">Seller Name:</label>
-            <input type="text" id="seller-name" name="seller-name" placeholder="Enter your name" required>
-
-            <label for="property-name">Property Name:</label>
-            <input type="text" id="property-name" name="property-name" placeholder="Enter property name" required>
-
-            <!-- Added Property Type Field -->
-            <label for="property-type">Property Type:</label>
-            <select id="property-type" name="property-type" required>
-                <option value="apartment">Apartment</option>
-                <option value="villa">Villa</option>
-                <option value="townhouse">Townhouse</option>
-                <option value="house">House</option>
-                <option value="cabin">Cabin</option>
-            </select>
-
-            <label for="rooms">Number of Rooms:</label>
-            <input type="number" id="rooms" name="rooms" placeholder="Enter number of rooms" required>
-
-            <label for="location">Location:</label>
-            <input type="text" id="location" name="location" placeholder="Enter location" required>
-
-            <label for="proximity">Proximity (km):</label>
-            <input type="number" id="proximity" name="proximity" placeholder="Enter proximity in km" required>
-            
-            <label for="price">Price:</label>
-            <input type="text" id="price" name="price" placeholder="Price" required>
-
-            <!-- Photo Upload Section -->
-            <div class="file-upload">
-                <label for="photo">Upload Property Photo:</label>
-                <input type="file" id="photo" name="photo" accept="image/*" required>
-                <label for="photo" class="file-upload-label">Choose a file</label>
+            <div class="form-group">
+                <label for="seller-name">Seller Name</label>
+                <input type="text" id="seller-name" name="seller-name" placeholder="Your full name" required>
             </div>
 
-            <button type="submit">Submit</button>
+            <div class="form-group">
+                <label for="property-name">Property Name</label>
+                <input type="text" id="property-name" name="property-name" placeholder="Give your property a name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="property-type">Property Type</label>
+                <select id="property-type" name="property-type" required>
+                    <option value="apartment">Apartment</option>
+                    <option value="villa">Villa</option>
+                    <option value="townhouse">Townhouse</option>
+                    <option value="house">House</option>
+                    <option value="cabin">Cabin</option>
+                    <option value="cottage">Cottage House</option>
+                    <option value="beachhouse">Beach House</option>
+                    <option value="loft">Loft</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="rooms">Number of Rooms</label>
+                <input type="number" id="rooms" name="rooms" placeholder="e.g. 3" required>
+            </div>
+
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" id="location" name="location" placeholder="City or community" required>
+            </div>
+
+
+            <div class="form-group">
+                <label for="price">Price (USD)</label>
+                <input type="text" id="price" name="price" placeholder="e.g. 250000" required>
+            </div>
+
+            <div class="form-group file-upload">
+               <!-- <label for="photo">Property Photo</label>-->
+                <input type="file" id="photo" name="photo" accept="image/*" required>
+                <label for="photo" class="file-upload-label">Choose a photo</label>
+            </div>
+
+            <button type="submit">Submit Listing</button>
         </form>
-    </div>
+    </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2023 Ellure Estates. All rights reserved.</p>
-        <p>
-            <a href="privacy-policy.php">Privacy Policy</a> | 
+        <p>&copy; 2025 Ellure Estates. All rights reserved.</p>
+        <div>
+            <a href="privacy-policy.php">Privacy Policy</a> |
             <a href="terms-of-service.php">Terms of Service</a>
-        </p>
+        </div>
     </footer>
 
     <script>
-        // Update file upload label with the selected file name
+        // File input label updater
         document.getElementById('photo').addEventListener('change', function () {
-            const fileName = this.files[0] ? this.files[0].name : 'No file chosen';
+            const fileName = this.files[0] ? this.files[0].name : 'Choose a photo';
             document.querySelector('.file-upload-label').textContent = fileName;
         });
     </script>
