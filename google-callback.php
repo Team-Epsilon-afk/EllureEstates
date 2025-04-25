@@ -4,8 +4,8 @@ require_once 'vendor/autoload.php';
 include 'db.php'; // Make sure this sets $conn
 
 $client = new Google_Client();
-$client->setClientId('738915678001-cheesf0o1ragjj7nikk5jclp2kv9ak6p.apps.googleusercontent.com');
-$client->setClientSecret('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');
+$client->setClientId('');
+$client->setClientSecret('');
 $client->setRedirectUri('http://localhost/ellure-estates/google-callback.php');
 $client->addScope('email');
 $client->addScope('profile');
